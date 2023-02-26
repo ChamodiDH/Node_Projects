@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="<%=(typeof editData!='undefined')?'/admin/update/invoice/'+editData.number:'/admin/register-invoice'%>" method="POST">
+            <div class="form-control">
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date" value="<%=(typeof editData!='undefined')? editData.date:''%>">
+                <input type="hidden" name="Number" id="Number" value="<%=(typeof editData!='undefined')? editData.number:''%>">
+            </div>
+            <div class="form-control">
+                <label for="CustomerName">Customer Name</label>
+                <input type="text" name="CustomerName" id="CustomerName" value="<%=(typeof editData!='undefined')? editData.customerName:''%>">
+            </div>
+            <div class="form-control">
+                <label for="totalval">Total Value of Invoice</label>
+                <input type="number" name="totalval" id="totalval" value="<%=(typeof editData!='undefined')? editData.totalValue:''%>">
+            </div>
+            <div class="form-control">
+                <label for="itemName">Item Name</label>
+                <input type="text" name="itemName" id="itemName" value="<%=(typeof editData!='undefined')? editData.itemName:''%>">
+            </div>
+            <div class="form-control">
+                <label for="quantity">Quantity</label>
+                <input type="number" name="quantity" id="quantity" step="0.01" value="<%=(typeof editData!='undefined')? editData.quantity:''%>" >
+            </div>
+        
+            <button class="btn" type="submit">Add Invoice</button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

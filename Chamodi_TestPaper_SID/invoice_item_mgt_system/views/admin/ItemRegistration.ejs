@@ -1,0 +1,51 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="<%=(typeof editData!='undefined')?'/admin/update/'+editData.itemNmber:'/admin/register-item'%>" method="POST">
+            <div class="form-control">
+                <label for="itemNumber">Item Number</label>
+                <input type="number" name="itemNumber" id="itemNmber" value="<%=(typeof editData!='undefined')? editData.itemNumber:''%>">
+            </div>
+           
+            <div class="form-control">
+                <label for="Name">Name</label>
+                <input type="text" name="Name" id="Name" value="<%=(typeof editData!='undefined')? editData.name:''%>">
+            </div>
+            <div class="form-control">
+                <label for="Description">Description</label>
+                <input type="text" name="Description" id="Description" value="<%=(typeof editData!='undefined')? editData.description:''%>">
+            </div>
+            <div class="form-control">
+                <label for="Buyingprice">Buying Price</label>
+                <input type="number" name="Buyingprice" id="Buyingprice" value="<%=(typeof editData!='undefined')? editData.buyingPrice:''%>" step="0.01">
+            </div>
+            <div class="form-control">
+                <label for="Sellingprice">Selling Price</label>
+                <input type="number" name="Sellingprice" id="Sellingprice" step="0.01" value="<%=(typeof editData!='undefined')? editData.sellingPrice:''%>">
+            </div>
+            <div class="form-control">
+                <label for="itemrec">Item Recorder Level</label>
+                <input type="number" id="itemrec" name="itemrec" step="0.01" value="<%=(typeof editData!='undefined')? editData.itemRecLevel:''%>">
+            </div>
+            <div class="form-control">
+                <label for="itemStock">Item Stock</label>
+                <input type="number" id="itemStock" name="itemStock" step="0.01" value="<%=(typeof editData!='undefined')? editData.itemStock:''%>">
+
+            <div class="form-control">
+                <label for="itemRecorderQuantity">Item Recorder Quantity</label>
+                <input type="number" name="itemRecorderQuantity" id="itemRecorderQuantity"  step="0.01" value="<%=(typeof editData!='undefined')? editData.itemQty:''%>">
+            </div>
+
+
+
+
+            <button class="btn" type="submit">Register Item</button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

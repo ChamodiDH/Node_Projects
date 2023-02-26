@@ -1,0 +1,21 @@
+CREATE TABLE `invoice` (
+	`number` INT(11) NOT NULL AUTO_INCREMENT,
+	`customerName` VARCHAR(255),
+	`totalValue` FLOAT,
+	`itemName` VARCHAR(255),
+	`quantity` INT(11)
+	PRIMARY KEY (`number`)
+);
+
+CREATE TABLE `items` (
+	`itemNumber` INT NOT NULL,
+	`name` VARCHAR(255),
+	`description` VARCHAR(255),
+	`buyingPrice` FLOAT,
+	`sellingPrice` FLOAT,
+	`itemStock` INT,
+	`itemRecLevel` INT,
+	`itemQty` INT,
+	PRIMARY KEY (`itemNumber`)
+);
+

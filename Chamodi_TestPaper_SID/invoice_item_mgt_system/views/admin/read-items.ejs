@@ -1,0 +1,52 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <div class="table-data">
+            <table border="1" >
+                <tr>
+                    <th>Item Number</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Buying Price</th>
+                    <th>Selling Price</th>
+                    <th>Item Stock</th>
+                    <th>Item Recording Level</th>
+                    <th>Item Quantity</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                
+                <%
+                if(fetchData.length!=0){
+                var i=1;
+                fetchData.forEach(function(data){
+                %>
+                <tr>
+                    <td><%=data.itemNumber %></td>
+                    <td><%=data.name %></td>
+                    <td><%=data.description %></td>
+                    <td><%=data.buyingPrice %></td>
+                    <td><%=data.sellingPrice %></td>
+                    <td><%=data.itemStock %></td>
+                    <td><%=data.itemRecLevel %></td>
+                    <td><%=data.itemQty %></td>
+                    <td><a href="/admin/edit/<%=data.itemNumber %>">Edit</a></td>
+                    <td><a href="/admin/delete/<%=data.itemNumber %>">Delete</a></td>
+                </tr>
+                <% console.log('item no of ejs:' + data.itemNumber) %>
+                <%  i++; }) %>
+                <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                <% } %>
+            </table>
+            </div>
+    </main>
+<%- include('../includes/end.ejs') %>

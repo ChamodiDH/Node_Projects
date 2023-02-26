@@ -1,0 +1,48 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        
+        <div class="table-data">
+            <table border="1" >
+                <tr>
+                    <th>number</th>
+                    <th>date</th>
+                    <th>customer name</th>
+                    <th>total value</th>
+                    <th>item name</th>
+                    <th>quantity</th>
+                    
+                </tr>
+                
+                <%
+                if(data.length!=0){
+                var i=1;
+                data.forEach(function(data){
+                %>
+                <tr>
+                    <td><%=data.number%></td>
+                    <td><%=data.date %></td>
+                    <td><%=data.customerName %></td>
+                    <td><%=data.totalValue %></td>
+                    <td><%=data.itemName %></td>
+                    <td><%=data.quantity %></td>
+                    
+                </tr>
+               
+                <%  i++; }) %>
+
+                <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                <% } %>
+            </table>
+            </div>
+    </main>
+<%- include('../includes/end.ejs') %>
